@@ -248,14 +248,14 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
     uint8_t layer = biton32(state);
     switch (layer) {
         case 1:
-            planck_ez_left_led_on();
+            // planck_ez_left_led_on();
             break;
         case 2:
-            planck_ez_right_led_on();
+            // planck_ez_right_led_on();
             break;
         case 3:
-            planck_ez_right_led_on();
-            planck_ez_left_led_on();
+            // planck_ez_right_led_on();
+            // planck_ez_left_led_on();
             break;
         default:
             break;
