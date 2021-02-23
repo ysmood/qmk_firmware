@@ -13,6 +13,7 @@
 #include "keymap_canadian_multilingual.h"
 #include "keymap_german_ch.h"
 #include "keymap_jp.h"
+#include "keymap_korean.h"
 #include "keymap_bepo.h"
 #include "keymap_italian.h"
 #include "keymap_slovenian.h"
@@ -25,6 +26,8 @@
 #include "keymap_russian.h"
 #include "keymap_uk.h"
 #include "keymap_estonian.h"
+#include "keymap_belgian.h"
+#include "keymap_us_international.h"
 
 #define KC_MAC_UNDO LGUI(KC_Z)
 #define KC_MAC_CUT LGUI(KC_X)
@@ -44,8 +47,8 @@
 
 enum planck_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
-  ST_MACRO_0,
 };
+
 
 enum planck_layers {
   _BASE,
@@ -64,21 +67,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESCAPE,      KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSPACE,      
     LCTL_T(KC_TAB), KC_A,           KC_S,           KC_D,           C_S_T(KC_F),    KC_G,           KC_H,           KC_J,           KC_K,           KC_L,           KC_SCOLON,      KC_QUOTE,       
     LSFT_T(KC_GRAVE),SCMD_T(KC_Z),   LSA_T(KC_X),    KC_C,           LT(4,KC_V),     LSFT_T(KC_B),   RSFT_T(KC_N),   KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_ENTER,       
-    OSL(2),         LCTL_T(KC_MINUS),LALT_T(KC_EQUAL),KC_LGUI,        LT(1,KC_LBRACKET),KC_SPACE,       KC_NO,          LT(2,KC_RBRACKET),KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT
+    TO(2),          LCTL_T(KC_MINUS),LALT_T(KC_EQUAL),KC_LGUI,        LT(1,KC_LBRACKET),KC_SPACE,       KC_NO,          LT(2,KC_RBRACKET),KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT
   ),
 
   [_LOWER] = LAYOUT_planck_grid(
     KC_MEDIA_EJECT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LPRN,        KC_RPRN,        KC_TRANSPARENT, KC_TRANSPARENT, KC_MINUS,       KC_EQUAL,       KC_UNDS,        KC_PLUS,        KC_DELETE,      
     KC_TAB,         KC_TRANSPARENT, KC_TRANSPARENT, KC_LCBR,        KC_RCBR,        KC_TRANSPARENT, KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_BSLASH,      KC_PIPE,        
     KC_LSHIFT,      LGUI(KC_1),     LGUI(KC_2),     LGUI(KC_3),     LGUI(KC_4),     KC_ENTER,       KC_HOME,        KC_PGDOWN,      KC_PGUP,        KC_END,         KC_TRANSPARENT, KC_TRANSPARENT, 
-    TO(5),          KC_LCTRL,       KC_LALT,        KC_TRANSPARENT, KC_TRANSPARENT, ST_MACRO_0,     KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+    TO(5),          KC_LCTRL,       KC_LALT,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
 
   [_RAISE] = LAYOUT_planck_grid(
     KC_TRANSPARENT, KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        KC_CIRC,        KC_AMPR,        KC_ASTR,        KC_LPRN,        KC_RPRN,        KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_TRANSPARENT, 
-    KC_CAPSLOCK,    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MEDIA_PREV_TRACK,KC_MEDIA_NEXT_TRACK,KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,KC_AUDIO_MUTE,  KC_TRANSPARENT, 
-    TO(0),          KC_RCTRL,       KC_RALT,        KC_RGUI,        KC_TRANSPARENT, KC_MEDIA_PLAY_PAUSE,KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+    KC_CAPSLOCK,    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MEDIA_PREV_TRACK,KC_MEDIA_PLAY_PAUSE,KC_MEDIA_NEXT_TRACK,KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,KC_AUDIO_MUTE,  KC_TRANSPARENT, 
+    TO(0),          KC_RCTRL,       KC_RALT,        KC_RGUI,        KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
 
   [_ADJUST] = LAYOUT_planck_grid(
@@ -173,12 +176,6 @@ void rgb_matrix_indicators_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case ST_MACRO_0:
-    if (record->event.pressed) {
-      SEND_STRING(SS_LGUI(SS_LSFT(SS_TAP(X_4))));
-
-    }
-    break;
     case RGB_SLD:
       if (record->event.pressed) {
         rgblight_mode(1);
@@ -261,3 +258,4 @@ bool music_mask_user(uint16_t keycode) {
 uint32_t layer_state_set_user(uint32_t state) {
     return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
+
