@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_ADJUST] = LAYOUT_planck_grid(
-    RESET,          KC_Q,           KC_W,           KC_E,           MU_TOG,         KC_T,           KC_Y,           KC_U,           RGB_VAD,        RGB_VAI,        KC_P,           WEBUSB_PAIR,    
+    RESET,          KC_Q,           KC_W,           KC_E,           MU_TOG,         KC_T,           KC_Y,           TOGGLE_LAYER_COLOR,RGB_VAD,        RGB_VAI,        KC_P,           WEBUSB_PAIR,    
     KC_TAB,         KC_A,           KC_S,           KC_D,           KC_F,           KC_BRIGHTNESS_DOWN,KC_BRIGHTNESS_UP,KC_J,           KC_K,           KC_L,           KC_SCOLON,      KC_QUOTE,       
     KC_RSHIFT,      KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_ENTER,       
     KC_TRANSPARENT, KC_LCTRL,       KC_LALT,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
