@@ -17,6 +17,7 @@
 #include "keymap_bepo.h"
 #include "keymap_italian.h"
 #include "keymap_slovenian.h"
+#include "keymap_lithuanian_azerty.h"
 #include "keymap_danish.h"
 #include "keymap_norwegian.h"
 #include "keymap_portuguese.h"
@@ -93,9 +94,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LAYER4] = LAYOUT_planck_grid(
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN1,     KC_MS_UP,       KC_MS_BTN2,     KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_F4,          KC_F5,          KC_F6,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_RIGHT,    KC_MS_BTN3,     KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_F4,          KC_F5,          KC_F6,          KC_MS_BTN2,     KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_RIGHT,    KC_MS_BTN3,     KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_F7,          KC_F8,          KC_F9,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN4,     KC_MS_WH_UP,    KC_MS_BTN5,     KC_TRANSPARENT, KC_TRANSPARENT, 
-    TO(0),          KC_F10,         KC_F11,         KC_F12,         KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_MS_WH_LEFT,  KC_MS_WH_DOWN,  KC_MS_WH_RIGHT, KC_TRANSPARENT, KC_TRANSPARENT
+    TO(0),          KC_F10,         KC_F11,         KC_F12,         KC_MS_BTN1,     KC_TRANSPARENT, KC_NO,          KC_MS_WH_LEFT,  KC_MS_WH_DOWN,  KC_MS_WH_RIGHT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
 
   [_LAYER5] = LAYOUT_planck_grid(
