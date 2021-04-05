@@ -840,6 +840,7 @@ enum quantum_keycodes {
 #define HYPR_T(kc) MT(MOD_LCTL | MOD_LSFT | MOD_LALT | MOD_LGUI, kc)  // see http://brettterpstra.com/2012/12/08/a-useful-caps-lock-key/
 #define SGUI_T(kc) MT(MOD_LGUI | MOD_LSFT, kc)                        // Left Shift + GUI
 #define SCMD_T(kc) SGUI_T(kc)
+#define ACMD_T(kc) MT(MOD_LGUI | MOD_LALT, kc) // GUI + Alt
 #define SWIN_T(kc) SGUI_T(kc)
 #define LCA_T(kc) MT(MOD_LCTL | MOD_LALT, kc)  // Left Control + Alt
 #define LSA_T(kc) MT(MOD_LSFT | MOD_LALT, kc)  // Left Shift + Alt
